@@ -43,11 +43,14 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+// 		This logging block can be replaced with MyLogger.info("User " + (succeed ? "logged successfully" : "failed to log in" ));
 		return succeed;
 	}
 
 	public void createEmail(Email email) {
 		MyLogger.info("------ Email creation is started ------");
+// 		It's a good practice to add test data to logs. In this very case smth like this:
+		MyLogger.info("Create an email: " + email.toString() + " and save it as a draft");
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
 		CreateEmailPage createEmailPage = accountPage.clickMailCreationBtn();
@@ -69,19 +72,23 @@ public class EmailService {
 		} else {
 			MyLogger.info("------ Email does not exist in DRAFT folder ------");
 		}
+// 		please use "?:" operatot instead if-else
 		return succeed;
 	}
 
 	public String getIncomingEmailSubject(int index) {
+// 		Please add a logger with a general method description: e.g."Get incoming email subject"
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
 		IncomingPage incomingPage = accountPage.clickMailIncomingMenuLink();
 		String actualSubject = incomingPage.getIncomingMailSubject(index);
+// 		Add logger of retrved data
 		return actualSubject;
 	}
 
 	public void openDraftEmail(int index) {
-		MyLogger.info("------ Open draft email... ------");
+		MyLogger.info("------ Open draft email... ------"); 
+// 		+.. " with index " + index
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
 		DraftPage draftPage = accountPage.clickMailDraftMenuLink();
@@ -90,6 +97,7 @@ public class EmailService {
 
 	public boolean sendEmail(Email email) {
 		MyLogger.info("------ Sent email: " + email +" ------");
+// 		please add toString() to email in logger
 		CreateEmailPage createEmailPage = new CreateEmailPage(
 				WebDriverSingleton.getWebDriverInstance());
 		AccountPage accountPage = createEmailPage.clickMailSendBtn();
@@ -107,10 +115,12 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+// 		"?:" operator can be used
 		return succeed;
 	}
 
 	public void refreshPage() {
+		Logger.info ("Refresh currently opened page")
 		BasePage basePage = new CreateEmailPage(
 				WebDriverSingleton.getWebDriverInstance());
 		basePage.refresh();
@@ -135,6 +145,7 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+// 		"?:" can be used
 		return succeed;
 	}
 
@@ -157,6 +168,7 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+		// 		"?:" can be used
 		return succeed;
 	}
 
@@ -179,6 +191,7 @@ public class EmailService {
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
 		refreshPage();
+// 		refreshPage is a separate service method. You can call from a test, so it's better to remove it from this service method and all further method when it's used
 		BasketPage basketPage = accountPage.clickBasketMenuLink();
 		boolean succeed = basketPage.isTextPresentOnPage(subjectDeleteIncomingMail);
 		if (succeed == true) {
@@ -194,6 +207,7 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+		// 		"?:" can be used
 		return succeed;
 	}
 
@@ -203,6 +217,7 @@ public class EmailService {
 		refreshPage();
 		BasketPage basketPage = accountPage.clickBasketMenuLink();
 		MyLogger.info("------ Email with subject " + basketPage.getDeleteMailSubject(index) + " will be deleted ------");
+// 		It seems that this method doesn't remove, but gets a subject of the already removed email
 		return basketPage.getDeleteMailSubject(index);
 	}
 
@@ -232,6 +247,7 @@ public class EmailService {
 				e.printStackTrace();
 			}
 		}
+		// 		"?:" can be used
 		return succeed;
 	}
 

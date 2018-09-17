@@ -1,0 +1,17 @@
+18:27:11:680 [INFO] ------ Login to mail.ru by user with login: vra_atmmodule5 and password: 123456789_Vra -------
+18:27:11:681 [DEBUG] Set vra_atmmodule5 to loginField
+18:27:11:888 [DEBUG] Set 123456789_Vra to passwordField
+18:27:12:064 [DEBUG] Click submit button: submitBtn
+18:27:12:193 [INFO] ------ Check if the user is logged ------
+18:27:17:528 [INFO] ------ User [login=vra_atmmodule5, password=123456789_Vra] is logged -----
+18:27:17:533 [INFO] ------ Email creation is started ------
+18:27:17:534 [DEBUG] Click mail creation button (mailCreationBtn)
+18:27:18:408 [DEBUG] Fill Recipient email address: vra_atmmodule6@mail.ru  to mailAddress field
+18:27:19:096 [DEBUG] Fill mail subject TestSubject1536852424877 to mailSubject field
+18:27:19:410 [DEBUG] Fill mail body TestTextBody1536852424877 to textBody field
+18:27:19:640 [INFO] ------ Save email as draft -----
+18:27:19:640 [DEBUG] Click save as draft button (saveAsDraftBtn)
+18:27:20:423 [INFO] ------ Check if email exists in Draft folder... -----
+18:27:20:423 [DEBUG] Click on mailDraftMenuLink
+18:27:20:778 [INFO] ------ Email exists in DRAFT folder -------
+18:27:20:780 [DEBUG] Click on LogOutLink

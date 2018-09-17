@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestMaiRuOperations" parallel="false">
+	<listeners>
+		<listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+	</listeners>
+
+	<test name="TestMaiRuOperations">
+		<classes>
+			<class name="tests.MailCreationTest" />
+			<class name="tests.MailSendTest" />
+			<class name="tests.MailDeleteTest" />
+		</classes>
+	</test>
+</suite>
+
+

@@ -101,6 +101,7 @@ public class EmailService {
 			ReportPortalMessage message;
 			try {
 				message = new ReportPortalMessage(ScreenShooter.takeScreenshot(), "Email was not sent");
+// please add TestNgListener and overrite onTestFailure method to make screenshots on each test failure, not just in case of specific exceptions
 				MyLogger.debug(message);
 			} catch (IOException e) {
 				System.out.print("Cannot send screenshot to report portal");
